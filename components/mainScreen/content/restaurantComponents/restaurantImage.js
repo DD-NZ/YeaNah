@@ -1,16 +1,14 @@
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
-const RestaurantImage = ({theme}) => {
-  return (
-    <View style={styles.imageContainer}>
-      <Image
-        source={require('../../../../assets/kisskiss.png')}
-        style={styles.image}
-      />
-    </View>
-  );
-}
+const RestaurantImage = ({ theme }) => (
+  <View style={styles.imageContainer}>
+    <Image
+      source={require('../../../../assets/kisskiss.png')}
+      style={styles.image}
+    />
+  </View>
+);
 
 export default RestaurantImage;
 

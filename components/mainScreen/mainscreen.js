@@ -1,19 +1,25 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, { useState, useCallback, memo }  from 'react';
+import { View } from 'react-native';
+
 import Header from './content/header';
-import Footer from './content/footer/footer';
-import RestaurantList from './content/restaurant/restaurant';
-import {getInitialData} from '../../actions/restaurant'
+import Footer from './content/footer';
+import RestaurantAnimation from './content/restaurantAnimation';
 
+const MainScreen = ({ theme }) => {
+  const [index, setIndex] = useState(0);
+  const [isButtonActive, setIsButtonActive] = useState(true);
 
+  const yeaOnPressHandler = useCallback(() => {
+    if (isButtonActive) {
+      setIndex(index + 1);
+    }
+  }, [isButtonActive, index]);
 
-const MainScreen = ({theme}) => {
-  getInitialData();
   return (
     <View style={{flex: 1}}>
       <Header theme={theme} />
-      <RestaurantList theme={theme}/>
-      <Footer theme={theme}/>
+      <RestaurantAnimation theme={theme} currentIndex={index} setIsButtonActive={setIsButtonActive} />
+      <Footer theme={theme} yeaOnPressHandler={yeaOnPressHandler} />
     </View>
   );
 }
