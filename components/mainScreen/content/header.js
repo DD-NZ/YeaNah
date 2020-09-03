@@ -1,18 +1,19 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {addBackgroundColor} from '../../../util/util';
+import { addBackgroundColor } from './util/';
+import Button from './sharedComponents/button'
 
-const Header = ({theme}) => {
+const Header = ({ theme }) => {
   return (
     <View style={addBackgroundColor(styles.header, theme.primaryBackground)}>
-      <View style={styles.iconContainer}>
+      <TouchableOpacity activeOpacity={0.5} style={styles.iconContainer}>
         <Icon name="user" color={theme.primary} size={46}/>
-      </View>
+      </TouchableOpacity>
       <View style={styles.middleContainer}/>
-      <View style={styles.iconContainer}>
+      <TouchableOpacity activeOpacity={0.5} style={styles.iconContainer}>
         <Icon name="sliders" color={theme.primary} size={46}/>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
